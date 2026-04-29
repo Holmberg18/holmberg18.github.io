@@ -57,6 +57,7 @@ export default function Portfolio() {
       tags: ["Buildroot", "C", "Linux", "Raspberry Pi 4", "HTML/CSS/JS"],
       desc: "Full-stack embedded Linux system for real-time Raspberry Pi 4 telemetry monitoring. Built a custom Buildroot OS image, background C daemon reading CPU temperature and resource metrics via ProcFS, JSON API, and a responsive web dashboard with live updates, color-coded alerts, and mobile compatibility.",
       date: "Dec 2025",
+      link: "https://github.com/cu-ecen-aeld/rpi4-system-health-monitor"
     },
     {
       title: "FPGA Software Development for NIOS II Embedded System",
@@ -241,7 +242,12 @@ export default function Portfolio() {
                   <span style={{ fontSize: "0.65rem", color: "#aaa", letterSpacing: "0.05em", flexShrink: 0 }}>{p.date}</span>
                 </div>
                 <div style={{ marginBottom: 14 }}>{p.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
-                <p style={{ fontSize: "0.82rem", lineHeight: 1.8, color: "#666" }}>{p.desc}</p>
+                <p style={{ fontSize: "0.82rem", lineHeight: 1.8, color: "#666", marginBottom: 14 }}>{p.desc}</p>
+                {p.link && (
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#1a1a1a", borderBottom: "1px solid #ccc", paddingBottom: 2, textDecoration: "none" }}>
+                    View on GitHub →
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -329,6 +335,7 @@ export default function Portfolio() {
               {[
                 { label: "Email", value: "holmberg18@gmail.com", href: "mailto:holmberg18@gmail.com" },
                 { label: "GitHub", value: "github.com/Holmberg18", href: "https://github.com/Holmberg18" },
+                { label: "LinkedIn", value: "linkedin.com/in/holmbergj", href: "https://www.linkedin.com/in/holmbergj/" },
                 { label: "Location", value: "Copenhagen, Denmark", href: "#" },
               ].map(({ label, value, href }) => (
                 <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
