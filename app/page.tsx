@@ -107,33 +107,129 @@ export default function Portfolio() {
   return (
     <div style={{ fontFamily: "'DM Mono', 'Courier New', monospace", background: "#f7f5f0", minHeight: "100vh", color: "#1a1a1a" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: #c8e6c9; }
-        .nav-link { cursor: pointer; transition: color 0.2s; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; padding: 4px 0; border-bottom: 1px solid transparent; }
-        .nav-link:hover, .nav-link.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
-        .section { padding: 80px 0; border-top: 1px solid #e0ddd6; }
-        .tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid #ccc; color: #666; margin: 3px 3px 3px 0; }
-        .project-card { border: 1px solid #e0ddd6; padding: 28px; margin-bottom: 16px; transition: border-color 0.2s, transform 0.2s; background: #fff; }
-        .project-card:hover { border-color: #1a1a1a; transform: translateY(-2px); }
-        .bullet::before { content: "—"; margin-right: 10px; color: #aaa; }
-        .skill-group { margin-bottom: 24px; }
-        .contact-link { color: #1a1a1a; text-decoration: none; border-bottom: 1px solid #ccc; transition: border-color 0.2s; }
-        .contact-link:hover { border-bottom-color: #1a1a1a; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-up { animation: fadeUp 0.6s ease forwards; }
-        .fade-up-2 { animation: fadeUp 0.6s 0.15s ease both; }
-        .fade-up-3 { animation: fadeUp 0.6s 0.3s ease both; }
-      `}</style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: #c8e6c9; }
+  .nav-link { cursor: pointer; transition: color 0.2s; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; padding: 4px 0; border-bottom: 1px solid transparent; }
+  .nav-link:hover, .nav-link.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+  .section { padding: 80px 0; border-top: 1px solid #e0ddd6; }
+  .tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid #ccc; color: #666; margin: 3px 3px 3px 0; }
+  .project-card { border: 1px solid #e0ddd6; padding: 28px; margin-bottom: 16px; transition: border-color 0.2s, transform 0.2s; background: #fff; }
+  .project-card:hover { border-color: #1a1a1a; transform: translateY(-2px); }
+  .bullet::before { content: "—"; margin-right: 10px; color: #aaa; }
+  .skill-group { margin-bottom: 24px; }
+  .contact-link { color: #1a1a1a; text-decoration: none; border-bottom: 1px solid #ccc; transition: border-color 0.2s; }
+  .contact-link:hover { border-bottom-color: #1a1a1a; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .fade-up-2 { animation: fadeUp 0.6s 0.15s ease both; }
+  .fade-up-3 { animation: fadeUp 0.6s 0.3s ease both; }
+  
+  /* ========== ADD ALL RESPONSIVE STYLES HERE ========== */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    color: #1a1a1a;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 28px;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+    
+    .nav-links {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: rgba(247, 245, 240, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0;
+      gap: 20px;
+      border-bottom: 1px solid #e0ddd6;
+      transform: translateY(-120%);
+      transition: transform 0.3s ease;
+      z-index: 99;
+    }
+    
+    .nav-links.open {
+      transform: translateY(0);
+    }
+    
+    .nav-link {
+      font-size: 0.9rem !important;
+      padding: 8px !important;
+    }
+    
+    /* Grid layouts to single column */
+    .about-grid, .contact-grid, .skills-grid {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+    
+    .exp-item, .edu-item {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    
+    .specs-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .projects-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    /* Spacing adjustments */
+    .section {
+      padding: 48px 0 !important;
+    }
+    
+    .project-card {
+      padding: 20px !important;
+    }
+    
+    .project-card h3 {
+      max-width: 100% !important;
+    }
+    
+    /* Better touch targets */
+    .nav-link, .contact-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+`}</style>
 
       {/* Fixed Nav */}
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(247,245,240,0.95)", backdropFilter: "blur(8px)", borderBottom: "1px solid #e0ddd6" }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px", height: 52, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", fontWeight: 300, letterSpacing: "0.02em" }}>Jon Holmberg</span>
-          <div style={{ display: "flex", gap: 28 }}>
+
+          {/* Hamburger button - only shows on mobile */}
+          <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? "✕" : "☰"}
+          </button>
+
+          {/* Desktop nav links */}
+          <div className={`nav-links ${menuOpen ? "open" : ""}`}>
             {nav.map(n => (
-              <span key={n} className={`nav-link${activeSection === n.toLowerCase() ? " active" : ""}`} onClick={() => scrollTo(n.toLowerCase())}>{n}</span>
+              <span key={n} className={`nav-link${activeSection === n.toLowerCase() ? " active" : ""}`} onClick={() => scrollTo(n.toLowerCase())}>
+                {n}
+              </span>
             ))}
           </div>
         </div>
@@ -160,7 +256,7 @@ export default function Portfolio() {
         {/* About */}
         <section id="about" className="section">
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>01 · About</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }}>
+          <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }}>
             <div>
               <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.8rem", fontWeight: 300, marginBottom: 20 }}>A bit about me.</h2>
               <p style={{ fontSize: "0.875rem", lineHeight: 1.9, color: "#555", marginBottom: 16 }}>
@@ -191,10 +287,9 @@ export default function Portfolio() {
         <section id="experience" className="section">
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>02 · Experience</p>
           {experience.map((e, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40, marginBottom: 48 }}>
-              <div>
-                <p style={{ fontSize: "0.75rem", color: "#888", lineHeight: 1.6 }}>{e.period}</p>
-              </div>
+            <div key={i} className="exp-item" style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40, marginBottom: 48 }}>              <div>
+              <p style={{ fontSize: "0.75rem", color: "#888", lineHeight: 1.6 }}>{e.period}</p>
+            </div>
               <div>
                 <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.1rem", fontWeight: 300, marginBottom: 4 }}>{e.role}</h3>
                 <p style={{ fontSize: "0.75rem", letterSpacing: "0.05em", color: "#888", marginBottom: 16 }}>{e.org}</p>
@@ -221,7 +316,7 @@ export default function Portfolio() {
             <p style={{ fontSize: "0.85rem", lineHeight: 1.9, color: "#555", marginBottom: 24, maxWidth: 640 }}>
               A benchtop 3-phase inverter emulating the core control architecture of a production EV traction drive — built entirely at a home desk in Copenhagen with no lab access. Hand-written FOC (not ST's Motor Control SDK), SVPWM with 7-segment center-aligned sequencing at 20 kHz, and CAN 2.0B telemetry with a custom DBC file. Designed as a portfolio centerpiece for automotive power electronics roles.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 32px", marginBottom: 24, paddingTop: 20, borderTop: "1px solid #e0ddd6" }}>
+            <div className="specs-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 32px" }}>
               {featuredProject.specs.map(s => (
                 <div key={s.label} style={{ display: "flex", gap: 12, alignItems: "baseline", padding: "6px 0", borderBottom: "1px solid #f0ede8" }}>
                   <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#aaa", width: 80, flexShrink: 0 }}>{s.label}</span>
@@ -234,7 +329,7 @@ export default function Portfolio() {
 
           {/* Other Projects */}
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", marginBottom: 16 }}>Other Projects</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {projects.map((p, i) => (
               <div key={i} className="project-card">
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
@@ -256,7 +351,7 @@ export default function Portfolio() {
         {/* Skills */}
         <section id="skills" className="section">
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>04 · Skills</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+          <div className="skills-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
             {Object.entries(skills).map(([group, items]) => (
               <div key={group} className="skill-group">
                 <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", marginBottom: 14 }}>{group}</p>
@@ -276,7 +371,7 @@ export default function Portfolio() {
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>05 · Education</p>
 
           {/* CU Boulder */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40, marginBottom: 48 }}>
+          <div className="edu-item" style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40, marginBottom: 48 }}>
             <div>
               <p style={{ fontSize: "0.75rem", color: "#888" }}>2024 – 2026 (Expected)</p>
             </div>
@@ -303,7 +398,7 @@ export default function Portfolio() {
           </div>
 
           {/* UC Berkeley */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40 }}>
+          <div className="edu-item" style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 40, marginBottom: 48 }}>
             <div>
               <p style={{ fontSize: "0.75rem", color: "#888" }}>2012</p>
             </div>
@@ -326,7 +421,7 @@ export default function Portfolio() {
         {/* Contact */}
         <section id="contact" className="section" style={{ borderBottom: "1px solid #e0ddd6" }}>
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>06 · Contact</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }}>
+          <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }}>
             <div>
               <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.8rem", fontWeight: 300, marginBottom: 16, lineHeight: 1.3 }}>Let's work<br /><span style={{ fontStyle: "italic" }}>together.</span></h2>
               <p style={{ fontSize: "0.875rem", lineHeight: 1.9, color: "#555" }}>Open to internship opportunities, research collaborations, and interesting projects. Feel free to reach out.</p>
