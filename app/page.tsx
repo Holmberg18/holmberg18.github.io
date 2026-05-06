@@ -70,7 +70,7 @@ export default function Portfolio() {
   const experience = [
     {
       role: "Software Engineer",
-      org: "B-Stock Solutions · Belmont, CA",
+      org: "B-Stock Solutions · Belmont, California USA",
       period: "July 2017 – Sept 2022",
       bullets: [
         "Maintained and developed 50+ Magento e-commerce auction sites, upgrading the listing pipeline to enable dynamic auction creation via manifest uploads — reducing seller onboarding time by ~30%",
@@ -83,7 +83,7 @@ export default function Portfolio() {
     },
     {
       role: "Magento Web Developer",
-      org: "EC Internet · Remote",
+      org: "EC Internet · Novato, California USA",
       period: "July 2016 – July 2017",
       bullets: [
         "Built and launched Magento e-commerce stores for clients across multiple industries, serving as the primary full-stack developer from initial setup through go-live",
@@ -149,7 +149,7 @@ export default function Portfolio() {
             <span style={{ fontStyle: "italic", color: "#555" }}>Engineer & Builder.</span>
           </h1>
           <p className="fade-up-3" style={{ fontSize: "0.9rem", lineHeight: 1.8, color: "#555", maxWidth: 520 }}>
-            MSECE grad student at CU Boulder, based in Copenhagen, Denmark. I build power electronics hardware from the ground up — schematic capture, PCB layout, soldering, bench bring-up — with a focus on motor drives and automotive systems.
+            Swedish/USA citizen and MSECE grad student at CU Boulder, based in Copenhagen, Denmark. I build power electronics hardware from the ground up — schematic capture, PCB layout, soldering, bench bring-up — with a focus on motor drives and automotive systems.
           </p>
           <div className="fade-up-3" style={{ marginTop: 36, display: "flex", gap: 16 }}>
             <span onClick={() => scrollTo("projects")} style={{ cursor: "pointer", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", borderBottom: "1px solid #1a1a1a", paddingBottom: 2 }}>View Projects</span>
@@ -180,7 +180,7 @@ export default function Portfolio() {
                 <p style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>Power Electronics / Motor Drive Roles<br /><span style={{ color: "#888" }}>Traction inverter · OBC · e-drive systems</span></p>
               </div>
               <div>
-                <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", marginBottom: 10 }}>Based in</p>
+                <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", marginBottom: 10 }}>Swedish/USA Citizen Based in</p>
                 <p style={{ fontSize: "0.875rem" }}>Copenhagen, Denmark</p>
               </div>
             </div>
