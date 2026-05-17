@@ -48,7 +48,7 @@ export default function Portfolio() {
       { label: "Target BW", value: "2000 rad/s · 60° phase margin · pole-zero cancellation" },
     ],
     tags: ["STM32", "FOC", "SVPWM", "Power Electronics", "CAN Bus", "Embedded C", "Motor Control"],
-    link: "#",
+    link: "https://github.com/Holmberg18/lv-traction-inverter-emulator",
   };
 
   const projects = [
@@ -305,27 +305,52 @@ export default function Portfolio() {
         <section id="projects" className="section">
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa", marginBottom: 36 }}>03 · Projects</p>
 
-          {/* Featured Project */}
-          <div style={{ border: "1px solid #1a1a1a", padding: "36px", marginBottom: 32, background: "#fff", position: "relative" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
-              <span style={{ fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa" }}>Featured Project</span>
-              <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", background: "#f0faf0", color: "#2a7a3a", border: "1px solid #b0d8b4", padding: "3px 10px" }}>● In Progress</span>
-            </div>
-            <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.5rem", fontWeight: 300, marginBottom: 6, lineHeight: 1.2 }}>Low-Voltage Traction Inverter Emulator</h3>
-            <p style={{ fontSize: "0.78rem", color: "#888", marginBottom: 16, fontStyle: "italic" }}>SVPWM-Driven PMSM with Field-Oriented Control and CAN Telemetry</p>
-            <p style={{ fontSize: "0.85rem", lineHeight: 1.9, color: "#555", marginBottom: 24, maxWidth: 640 }}>
-              A benchtop 3-phase inverter emulating the core control architecture of a production EV traction drive — built entirely at a home desk in Copenhagen with no lab access. Hand-written FOC (not ST's Motor Control SDK), SVPWM with 7-segment center-aligned sequencing at 20 kHz, and CAN 2.0B telemetry with a custom DBC file. Designed as a portfolio centerpiece for automotive power electronics roles.
-            </p>
-            <div className="specs-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 32px" }}>
-              {featuredProject.specs.map(s => (
-                <div key={s.label} style={{ display: "flex", gap: 12, alignItems: "baseline", padding: "6px 0", borderBottom: "1px solid #f0ede8" }}>
-                  <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#aaa", width: 80, flexShrink: 0 }}>{s.label}</span>
-                  <span style={{ fontSize: "0.8rem", color: "#444" }}>{s.value}</span>
-                </div>
-              ))}
-            </div>
-            <div>{featuredProject.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
-          </div>
+         {/* Featured Project */}
+<div style={{ border: "1px solid #1a1a1a", padding: "36px", marginBottom: 32, background: "#fff", position: "relative" }}>
+  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+    <span style={{ fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#aaa" }}>Featured Project</span>
+    <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", background: "#f0faf0", color: "#2a7a3a", border: "1px solid #b0d8b4", padding: "3px 10px" }}>● In Progress</span>
+  </div>
+  <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.5rem", fontWeight: 300, marginBottom: 6, lineHeight: 1.2 }}>Low-Voltage Traction Inverter Emulator</h3>
+  <p style={{ fontSize: "0.78rem", color: "#888", marginBottom: 16, fontStyle: "italic" }}>SVPWM-Driven PMSM with Field-Oriented Control and CAN Telemetry</p>
+  <p style={{ fontSize: "0.85rem", lineHeight: 1.9, color: "#555", marginBottom: 24, maxWidth: 640 }}>
+    A benchtop 3-phase inverter emulating the core control architecture of a production EV traction drive — built entirely at a home desk in Copenhagen with no lab access. Hand-written FOC (not ST's Motor Control SDK), SVPWM with 7-segment center-aligned sequencing at 20 kHz, and CAN 2.0B telemetry with a custom DBC file. Designed as a portfolio centerpiece for automotive power electronics roles.
+  </p>
+  <div className="specs-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 32px", marginBottom: 24 }}>
+    {featuredProject.specs.map(s => (
+      <div key={s.label} style={{ display: "flex", gap: 12, alignItems: "baseline", padding: "6px 0", borderBottom: "1px solid #f0ede8" }}>
+        <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#aaa", width: 80, flexShrink: 0 }}>{s.label}</span>
+        <span style={{ fontSize: "0.8rem", color: "#444" }}>{s.value}</span>
+      </div>
+    ))}
+  </div>
+  
+  {/* Tags section - with proper spacing */}
+  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: 24 }}>
+    {featuredProject.tags.map(t => <span key={t} className="tag">{t}</span>)}
+  </div>
+  
+  {featuredProject.link && (
+    <div style={{ marginTop: 8 }}>
+      <a 
+        href={featuredProject.link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        style={{ 
+          fontSize: "0.7rem", 
+          letterSpacing: "0.1em", 
+          textTransform: "uppercase", 
+          color: "#1a1a1a", 
+          borderBottom: "1px solid #ccc", 
+          paddingBottom: 2, 
+          textDecoration: "none"
+        }}
+      >
+        View on GitHub →
+      </a>
+    </div>
+  )}
+</div>
 
           {/* Other Projects */}
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa", marginBottom: 16 }}>Other Projects</p>
